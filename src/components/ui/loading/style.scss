@@ -1,0 +1,15 @@
+.loading_container {
+  @media screen and (max-width: 550px) {
+    background: url("../../../assets/images/main_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
