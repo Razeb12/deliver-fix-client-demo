@@ -1,0 +1,50 @@
+.onboarding_container {
+  background: url("../../assets/images/background_pic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+  height: 100vh;
+
+  .btn_control {
+    display: flex;
+    padding-top: 3em;
+    justify-content: space-between;
+    align-items: center;
+
+    .active_counts {
+      display: flex;
+      gap: 10px;
+
+      .active_status {
+        background: #f74a4a;
+        border-radius: 8px;
+        width: 16px;
+        height: 8px;
+        transition: all 0.5s ease-in-out;
+      }
+
+      .inactive_status {
+        background: #309a88;
+        border-radius: 8px;
+        width: 8px;
+        height: 8px;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+
+    .next_btn {
+      width: 123px;
+      height: 40px;
+      background: #309a88;
+      border-radius: 100px;
+
+      //font stylings
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
