@@ -1,0 +1,23 @@
+.primary_container {
+  .primary_btn {
+    width: 318px;
+    height: 40px;
+    background: #1777f2;
+    border: none;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: #1777f2;
+      border: 1px solid #1777f2;
+    }
+  }
+}

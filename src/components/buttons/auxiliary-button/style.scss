@@ -1,0 +1,19 @@
+.auxiliary_container {
+  .auxiliary_btn {
+    width: 318px;
+    height: 40px;
+    background: #333333;
+    border: none;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
