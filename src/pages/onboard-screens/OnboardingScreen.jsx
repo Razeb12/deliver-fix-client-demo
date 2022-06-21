@@ -5,6 +5,7 @@ import StepTwo from "./steps/StepTwo";
 import StepThree from "./steps/StepThree";
 import Loading from "../../components/ui/loading/Loading";
 import { Link } from "react-router-dom";
+import { SIGNUP_PAGE } from "../../routes";
 
 const OnboardingScreen = () => {
   const [loading, setLoading] = useState(true);
@@ -40,7 +41,7 @@ const OnboardingScreen = () => {
               ></div>
             </div>
             {pageCount === 3 ? (
-              <Link to="/hello">
+              <Link to={SIGNUP_PAGE}>
                 <button className="next_btn">Next</button>
               </Link>
             ) : (

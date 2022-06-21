@@ -1,0 +1,94 @@
+.sign_container {
+  background: url("../../assets/images/main_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+  height: 100vh;
+
+  .sign_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .sign_header {
+      display: grid;
+      gap: 25px;
+      text-align: center;
+
+      img {
+        width: 140px;
+        height: 150px;
+      }
+
+      h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+        color: #000000;
+      }
+    }
+
+    .sign_form {
+      .form_input {
+        width: 318px;
+        height: 38px;
+        border-radius: 3px;
+        background: transparent !important;
+      }
+    }
+
+    .forgot_link {
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        text-decoration: none;
+        color: #3300ff;
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 15px;
+      }
+    }
+
+    .form_extra_auth {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 1em;
+
+      .or_sign {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        hr {
+          width: 50px;
+        }
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      .auth_btns {
+        display: grid;
+        gap: 10px;
+      }
+
+      p {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #232323;
+      }
+    }
+  }
+}
