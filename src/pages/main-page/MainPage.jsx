@@ -11,6 +11,7 @@ import RatingsIcon from "../../assets/images/rating.png";
 import MenuIcon from "../../assets/images/menu.png";
 import ReservationIcon from "../../assets/images/reservation.png";
 import Circle from "../../components/circles/Circle";
+import DeliveryCard from "../../components/card/delivery-card/DeliveryCard";
 
 const menuItems = [
   {
@@ -96,6 +97,26 @@ const MainPage = () => {
               title={item.name}
             />
           ))}
+        </div>
+      </div>
+      <div className="main_info_delivery">
+        <h2>Take my delivery to</h2>
+        <div className="mainpage_delivery">
+          <DeliveryCard />
+        </div>
+      </div>
+      <div className="mainpage_live">
+        <h2>Live Food Show</h2>
+        <div ageclassName="mainpage_yt">
+          <iframe
+            src="https://youtube.com/embed/F9NG_nFD2m0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="Making Burger"
+            width="100%"
+            height="158"
+          />
         </div>
       </div>
     </div>
