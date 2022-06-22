@@ -12,6 +12,7 @@ import MenuIcon from "../../assets/images/menu.png";
 import ReservationIcon from "../../assets/images/reservation.png";
 import Circle from "../../components/circles/Circle";
 import DeliveryCard from "../../components/card/delivery-card/DeliveryCard";
+import InviteCard from "../../components/card/invite-card/InviteCard";
 
 const menuItems = [
   {
@@ -117,6 +118,13 @@ const MainPage = () => {
             width="100%"
             height="158"
           />
+        </div>
+      </div>
+      <div className="mainpage_invite">
+        <h2>Invite Friends & Get Discount</h2>
+        <div className="mainpage_invite_container">
+          <InviteCard />
+          <InviteCard />
         </div>
       </div>
     </div>

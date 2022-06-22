@@ -53,4 +53,32 @@
       color: #000000;
     }
   }
+
+  .mainpage_invite {
+    padding-top: 1.8em;
+    padding-bottom: 2em;
+    padding-right: 0;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+
+    .mainpage_invite_container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      padding-left: 0.5em;
+      padding-top: 0.8em;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 }
