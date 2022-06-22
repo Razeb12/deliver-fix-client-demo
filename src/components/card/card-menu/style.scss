@@ -1,0 +1,24 @@
+a {
+  text-decoration: none;
+
+  .card_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    background: #ffffff;
+    box-shadow: 0px 0.25px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 107px;
+    height: 88px;
+
+    p {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: #000000;
+    }
+  }
+}

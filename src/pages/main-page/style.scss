@@ -1,0 +1,30 @@
+.mainpage {
+  background: url("../../assets/images/main_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 1.5em;
+  .mainpage_top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .mainpage_info {
+    padding-top: 1.3em;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+
+    .mainpage_circles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding-top: 6px;
+    }
+  }
+}
