@@ -88,7 +88,7 @@ const MainPage = () => {
         ))}
       </div>
       <div className="mainpage_info">
-        <h2>Information about the retaurant</h2>
+        <h2>Information about the restaurant</h2>
         <div className="mainpage_circles">
           {informationItems.map((item, index) => (
             <Circle
