@@ -62,8 +62,8 @@ const TopNavigation = () => {
             <GiHamburgerMenu onClick={toggleDrawer} size={20} />
           </div>
           {navLinks.map((item, index) => (
-            <div className="nav_links">
-              <Link to={item.linkUrl} key={index}>
+            <div className="nav_links" key={index}>
+              <Link to={item.linkUrl}>
                 <img src={item.imgUrl} alt="icon" /> {item.name}
               </Link>
             </div>

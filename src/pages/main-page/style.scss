@@ -1,0 +1,84 @@
+.mainpage {
+  background: url("../../assets/images/main_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 1.5em;
+  .mainpage_top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .mainpage_info {
+    padding-top: 1.3em;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+
+    .mainpage_circles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding-top: 6px;
+    }
+  }
+
+  .main_info_delivery {
+    padding-top: 1.8em;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+
+    .mainpage_delivery {
+      padding-top: 1.2em;
+    }
+  }
+
+  .mainpage_live {
+    padding-top: 1.8em;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+  }
+
+  .mainpage_invite {
+    padding-top: 1.8em;
+    padding-bottom: 2em;
+    padding-right: 0;
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      line-height: 12px;
+      color: #000000;
+    }
+
+    .mainpage_invite_container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      padding-left: 0.5em;
+      padding-top: 0.8em;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
