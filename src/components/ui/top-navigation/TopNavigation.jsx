@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
-import { BsFillBellFill } from "react-icons/bs";
-import { Drawer, Badge } from "antd";
+import { BsFillCartFill } from "react-icons/bs";
+import { Drawer } from "antd";
 import ProfileIcon from "../../../assets/svgs/profile_icon.svg";
 import PaymentIcon from "../../../assets/svgs/payment_icon.svg";
 import NotificationIcon from "../../../assets/svgs/notification_icon.svg";
@@ -81,9 +81,7 @@ const TopNavigation = () => {
         <input type="text" placeholder="Search Food" />
       </div>
       <div className="notification_icon">
-        <Badge count={2}>
-          <BsFillBellFill size={20} />
-        </Badge>
+        <BsFillCartFill size={20} color="#A9B021" />
       </div>
       <div className="user_icon">
         <AiOutlineUser size={20} />

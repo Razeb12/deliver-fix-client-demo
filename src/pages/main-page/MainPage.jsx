@@ -17,7 +17,7 @@ import InviteCard from "../../components/card/invite-card/InviteCard";
 const menuItems = [
   {
     name: "Order Food",
-    link: "/order",
+    link: "/order-burger",
     imgUrl: OrderFoodIcon,
   },
   {
