@@ -64,7 +64,7 @@ export const BurgerMenu = [
       "It is a long established fact read when looking at its layout. looking at its layout. fact read when looking at its layout.",
   },
   {
-    name: "Beef Burger With Wine",
+    name: "Beef Burger",
     minorName: "Cheesy Mozarella",
     price: "6.99",
     rating: "4.5",
