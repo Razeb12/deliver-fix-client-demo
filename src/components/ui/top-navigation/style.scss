@@ -1,9 +1,8 @@
 .top_navigation_container {
   padding-top: 15px;
   display: flex;
-  gap: 10px;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   .hamburger_menu {
     .drawer_menu {
       width: 36px;

@@ -17,17 +17,17 @@ import InviteCard from "../../components/card/invite-card/InviteCard";
 const menuItems = [
   {
     name: "Order Food",
-    link: "/order",
+    link: "/order-burger",
     imgUrl: OrderFoodIcon,
   },
   {
     name: "Offers",
-    link: "/offer",
+    link: "#",
     imgUrl: OffersIcon,
   },
   {
     name: "Events",
-    link: "/offer",
+    link: "#",
     imgUrl: EventIcon,
   },
   {
@@ -37,17 +37,17 @@ const menuItems = [
   },
   {
     name: "Pre Order",
-    link: "/preoffer",
+    link: "#",
     imgUrl: PreOrderIcon,
   },
   {
     name: "Daily Live",
-    link: "/live",
+    link: "#",
     imgUrl: LiveIcon,
   },
   {
     name: "Restaurant",
-    link: "/restaurant",
+    link: "#",
     imgUrl: LiveIcon,
   },
 ];

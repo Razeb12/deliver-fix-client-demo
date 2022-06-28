@@ -4,3 +4,6 @@ export { default as SignInPage } from "./sigin-page/SignIn";
 export { default as ForgotPasswordPage } from "./forgot-password/ForgotPassword";
 export { default as ResetPasswordPage } from "./reset-password/ResetPassword";
 export { default as MainPage } from "./main-page/MainPage";
+export { default as BurgerPage } from "./order-pages/BurgerPage";
+export { default as PizzaPage } from "./order-pages/PizzaPage";
+export { default as DrinksPage } from "./order-pages/DrinksPage";
