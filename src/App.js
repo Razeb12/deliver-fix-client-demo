@@ -10,6 +10,7 @@ import {
   BURGER_PAGE,
   PIZZA_PAGE,
   DRINKS_PAGE,
+  CART_PAGE,
 } from "./routes";
 import {
   OnboardingScreen,
@@ -21,6 +22,7 @@ import {
   BurgerPage,
   PizzaPage,
   DrinksPage,
+  CartPage,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
 import MainLayout from "./layout/main-layout/MainLayout";
@@ -36,6 +38,7 @@ function App() {
         <Route path={RESET_PASSWORD_PAGE} element={<ResetPasswordPage />} />
         <Route element={<DashboardLayout />}>
           <Route path={MAIN_PAGE} element={<MainPage />} />
+          <Route path={CART_PAGE} element={<CartPage />} />
           <Route element={<MainLayout />}>
             <Route path={BURGER_PAGE} element={<BurgerPage />} />
             <Route path={PIZZA_PAGE} element={<PizzaPage />} />

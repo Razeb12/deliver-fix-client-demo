@@ -7,3 +7,4 @@ export { default as MainPage } from "./main-page/MainPage";
 export { default as BurgerPage } from "./order-pages/BurgerPage";
 export { default as PizzaPage } from "./order-pages/PizzaPage";
 export { default as DrinksPage } from "./order-pages/DrinksPage";
+export { default as CartPage } from "./cart-page/CartPage";

@@ -1,0 +1,41 @@
+.extras_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .extras_check {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    .extra_package {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+
+      p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        color: #000000;
+        text-align: left;
+      }
+    }
+  }
+  .extra_price {
+    p {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #000;
+      margin: 0;
+
+      span {
+        color: #ff0000;
+        padding-right: 0.3em;
+      }
+    }
+  }
+}
