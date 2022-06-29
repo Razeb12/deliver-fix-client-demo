@@ -7,3 +7,4 @@ export const MAIN_PAGE = "/dashboard";
 export const BURGER_PAGE = "/order-burger";
 export const PIZZA_PAGE = "/pizza";
 export const DRINKS_PAGE = "/drinks";
+export const CART_PAGE = "/cart";
