@@ -99,20 +99,86 @@
         color: #ae5681;
       }
     }
+  }
 
-    .suggestion_layout {
-      /* display: flex;
-      gap: 20px;
-      flex-wrap: nowrap;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      scrollbar-width: none;
-      padding-left: 0.5em;
-      padding-top: 0.8em;
+  .receipt_section {
+    h2 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #ae5681;
+    }
 
-      &::-webkit-scrollbar {
-        display: none;
-      } */
+    .receipt_items {
+      display: grid;
+      gap: 5px;
+
+      .item_lists {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 15px;
+        }
+
+        p {
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 15px;
+          color: #ff0000;
+        }
+      }
+    }
+  }
+
+  .promo_code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #699334;
+    }
+  }
+
+  .payment_method {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #ae5681;
+    }
+
+    p {
+      display: flex;
+      margin: 0;
+      gap: 10px;
+    }
+  }
+
+  .checkout_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 100%;
+      border: none;
+      height: 48px;
+      background: #699334;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.05em;
+      color: #ffffff;
     }
   }
 }

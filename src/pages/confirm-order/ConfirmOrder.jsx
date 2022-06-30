@@ -3,6 +3,8 @@ import "./style.scss";
 import BurgerPic from "../../assets/images/burger_sandwich.png";
 import SuggestionCard from "./suggestion-card/SuggestionCard";
 import { suggestionList } from "./data";
+import { FaGreaterThan } from "react-icons/fa";
+import { Checkbox } from "antd";
 
 const ConfirmOrder = () => {
   const [count, setCount] = useState(1);
@@ -63,6 +65,40 @@ const ConfirmOrder = () => {
           </div>
         </div>
         <div className="full_width"></div>
+        <div className="receipt_section container">
+          <h2>Receipt</h2>
+          <div className="receipt_items">
+            <div className="item_lists">
+              <h3>Subtotal (include VAT+)</h3>
+              <p>€285.25</p>
+            </div>
+            <div className="item_lists">
+              <h3>Delivery</h3>
+              <p>€1.00</p>
+            </div>
+            <div className="item_lists">
+              <h3>Total Bill</h3>
+              <p>€286.25</p>
+            </div>
+          </div>
+        </div>
+        <div className="full_width"></div>
+        <div className="promo_code container">
+          <h3>Apply Promo Code (%)</h3>
+          <FaGreaterThan color="#699334" size={18} />
+        </div>
+        <div className="full_width"></div>
+        <div className="payment_method container">
+          <h2>Payment Method</h2>
+            <p><Checkbox />Cash on Delivery</p>
+            <p><Checkbox />Card/Itopup Banking</p>
+            <p><Checkbox />Paypal</p>
+            <p><Checkbox />Visa/Mastercard</p>
+        </div>
+
+        <div className="checkout_btn container">
+            <button>Confirm Order</button>
+        </div>
       </div>
     </div>
   );
