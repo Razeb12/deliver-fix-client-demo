@@ -1,0 +1,87 @@
+.suggestion_container {
+  margin-top: 1.5em;
+  cursor: pointer;
+  margin-left: 15px;
+  .suggestion_header {
+    h4 {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    .suggestion_card {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .suggestion_box {
+        width: 225px;
+        max-width: 225px;
+        object-fit: contain;
+        height: 100px;
+        border: 0.75px solid #c4c4c4;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1em;
+
+        .suggestion_card_left {
+          h2 {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: #000000;
+            margin: 0;
+            width: 120px;
+          }
+
+          p {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 8px;
+            line-height: 10px;
+            color: #000000;
+            margin: 0;
+          }
+
+          h3 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 12px;
+
+            span {
+              color: #ff0000;
+            }
+          }
+
+          button {
+            background: #699334;
+            border-radius: 3px;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 24px;
+            border: none;
+            width: 41px;
+            height: 22px;
+          }
+        }
+
+        .suggestion_card_right {
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+}
