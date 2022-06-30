@@ -11,6 +11,7 @@ import {
   PIZZA_PAGE,
   DRINKS_PAGE,
   CART_PAGE,
+  CONFIRM_PAGE,
 } from "./routes";
 import {
   OnboardingScreen,
@@ -23,6 +24,7 @@ import {
   PizzaPage,
   DrinksPage,
   CartPage,
+  ConfirmOrder,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
 import MainLayout from "./layout/main-layout/MainLayout";
@@ -36,6 +38,7 @@ function App() {
         <Route path={SIGNIN_PAGE} element={<SignInPage />} />
         <Route path={FORGOT_PASSWORD_PAGE} element={<ForgotPasswordPage />} />
         <Route path={RESET_PASSWORD_PAGE} element={<ResetPasswordPage />} />
+        <Route path={CONFIRM_PAGE} element={<ConfirmOrder />} />
         <Route element={<DashboardLayout />}>
           <Route path={MAIN_PAGE} element={<MainPage />} />
           <Route path={CART_PAGE} element={<CartPage />} />
