@@ -1,0 +1,53 @@
+.success_container {
+  background: url("../../../assets/images/background_pic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+
+  .success_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    gap: 5px;
+
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: #699334;
+    }
+
+    h4 {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      color: #000;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 17px;
+      color: #000000;
+    }
+
+    a {
+      text-decoration: none;
+      button {
+        background: #699334;
+        border-radius: 6px;
+        width: 274px;
+        height: 48px;
+        letter-spacing: 0.05em;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        border: none;
+      }
+    }
+  }
+}
