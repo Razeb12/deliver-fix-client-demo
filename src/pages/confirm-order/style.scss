@@ -150,6 +150,7 @@
   .payment_method {
     display: flex;
     flex-direction: column;
+    gap: 0.9em;
     h2 {
       font-weight: 700;
       font-size: 16px;
@@ -168,6 +169,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 
     button {
       width: 100%;
