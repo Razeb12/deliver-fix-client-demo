@@ -4,16 +4,14 @@
   background-size: cover;
   background-color: #fff;
   height: 100vh;
+  display: grid;
 
   .sign_body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+    margin: auto;
 
     .sign_header {
       display: grid;
