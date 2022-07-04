@@ -13,6 +13,7 @@ import {
   CART_PAGE,
   CONFIRM_PAGE,
   PROCESS_PAGE,
+  TRACKING_PAGE,
 } from "./routes";
 import {
   OnboardingScreen,
@@ -27,6 +28,7 @@ import {
   CartPage,
   ConfirmOrder,
   OrderProcess,
+  TrackingPage,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
 import MainLayout from "./layout/main-layout/MainLayout";
@@ -45,6 +47,7 @@ function App() {
           <Route path={MAIN_PAGE} element={<MainPage />} />
           <Route path={CART_PAGE} element={<CartPage />} />
           <Route path={PROCESS_PAGE} element={<OrderProcess />} />
+          <Route path={TRACKING_PAGE} element={<TrackingPage />} />
           <Route element={<MainLayout />}>
             <Route path={BURGER_PAGE} element={<BurgerPage />} />
             <Route path={PIZZA_PAGE} element={<PizzaPage />} />
