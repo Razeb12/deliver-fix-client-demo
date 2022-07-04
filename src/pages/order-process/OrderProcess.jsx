@@ -4,7 +4,7 @@ import Rider from "../../assets/svgs/ridericon.svg";
 import OfferOne from "../../assets/images/offerone.png";
 import OfferTwo from "../../assets/images/offertwo.png";
 import { Link } from "react-router-dom";
-import { PROCESS_PAGE } from "../../routes";
+import { TRACKING_PAGE } from "../../routes";
 
 const OrderProcess = () => {
   return (
@@ -20,7 +20,7 @@ const OrderProcess = () => {
             I am on the way to deliver your orders now. It will take about{" "}
             <span>19 minutes</span>. Thank you for your patience.
           </p>
-          <Link to={PROCESS_PAGE}>
+          <Link to={TRACKING_PAGE}>
             <button>Live Tracking</button>
           </Link>
         </div>
