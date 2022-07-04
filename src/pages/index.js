@@ -9,3 +9,4 @@ export { default as PizzaPage } from "./order-pages/PizzaPage";
 export { default as DrinksPage } from "./order-pages/DrinksPage";
 export { default as CartPage } from "./cart-page/CartPage";
 export { default as ConfirmOrder } from "./confirm-order/ConfirmOrder";
+export { default as OrderProcess } from "./order-process/OrderProcess";

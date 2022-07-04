@@ -1,6 +1,7 @@
 import "./style.scss";
 import SuccessPic from "../../../assets/svgs/thankyou.svg";
 import { Link } from "react-router-dom";
+import { PROCESS_PAGE } from "../../../routes";
 
 const SuccessPage = () => {
   return (
@@ -10,7 +11,7 @@ const SuccessPage = () => {
         <h4>We place your order successfully</h4>
         <img src={SuccessPic} alt="success" />
         <p>Your Order No- GRE2584751548</p>
-        <Link to="/track">
+        <Link to={PROCESS_PAGE}>
           <button>Track your Order</button>
         </Link>
       </div>
