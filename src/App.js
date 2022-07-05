@@ -7,13 +7,11 @@ import {
   FORGOT_PASSWORD_PAGE,
   RESET_PASSWORD_PAGE,
   MAIN_PAGE,
-  BURGER_PAGE,
-  PIZZA_PAGE,
-  DRINKS_PAGE,
   CART_PAGE,
   CONFIRM_PAGE,
   PROCESS_PAGE,
   TRACKING_PAGE,
+  ORDER_PAGE,
 } from "./routes";
 import {
   OnboardingScreen,
@@ -22,16 +20,13 @@ import {
   ForgotPasswordPage,
   ResetPasswordPage,
   MainPage,
-  BurgerPage,
-  PizzaPage,
-  DrinksPage,
   CartPage,
   ConfirmOrder,
   OrderProcess,
   TrackingPage,
+  OrderPage,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
-import MainLayout from "./layout/main-layout/MainLayout";
 
 function App() {
   return (
@@ -48,11 +43,7 @@ function App() {
           <Route path={CART_PAGE} element={<CartPage />} />
           <Route path={PROCESS_PAGE} element={<OrderProcess />} />
           <Route path={TRACKING_PAGE} element={<TrackingPage />} />
-          <Route element={<MainLayout />}>
-            <Route path={BURGER_PAGE} element={<BurgerPage />} />
-            <Route path={PIZZA_PAGE} element={<PizzaPage />} />
-            <Route path={DRINKS_PAGE} element={<DrinksPage />} />
-          </Route>
+          <Route path={ORDER_PAGE} element={<OrderPage />} />
         </Route>
       </Routes>
     </div>

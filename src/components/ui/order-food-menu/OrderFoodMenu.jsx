@@ -5,23 +5,6 @@ import PizzaIcon from "../../../assets/svgs/pizza.svg";
 import DrinksIcon from "../../../assets/svgs/drinks.svg";
 
 const OrderFoodMenu = () => {
-  const MenuList = [
-    {
-      name: "Burger",
-      icon: BurgerIcon,
-      link: "/order-burger",
-    },
-    {
-      name: "Pizza",
-      icon: PizzaIcon,
-      link: "/pizza",
-    },
-    {
-      name: "Drinks",
-      icon: DrinksIcon,
-      link: "/drinks",
-    },
-  ];
   const activeMenu = {
     backgroundColor: "#A9B021",
   };
@@ -29,18 +12,24 @@ const OrderFoodMenu = () => {
   return (
     <div className="order-food-menu container">
       <div className="order_food">
-        {MenuList.map((menu, index) => (
-          <NavLink
-            to={menu.link}
-            key={index}
-            style={({ isActive }) => (isActive ? activeMenu : undefined)}
-          >
-            <span>
-              <img src={menu.icon} alt={menu.name} />
-            </span>
-            {menu.name}
-          </NavLink>
-        ))}
+        <div className="order-food-menu__item">
+          <span>
+            <img src={BurgerIcon} alt="tab-one" />
+          </span>
+          Burger
+        </div>
+        <div className="order-food-menu__item">
+          <span>
+            <img src={PizzaIcon} alt="tab-two" />
+          </span>
+          Pizza
+        </div>
+        <div className="order-food-menu__item">
+          <span>
+            <img src={DrinksIcon} alt="tab-three" />
+          </span>
+          Drinks
+        </div>
       </div>
     </div>
   );

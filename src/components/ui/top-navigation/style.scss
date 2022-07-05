@@ -3,6 +3,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (device-width: 360px) and (device-height: 740px) {
+    justify-content: space-between;
+  }
   .hamburger_menu {
     .drawer_menu {
       width: 36px;
@@ -38,6 +42,10 @@
       font-size: 10px;
       line-height: 12px;
       color: #000000;
+
+      @media screen and (device-width: 360px) and (device-height: 740px) {
+        width: 200px;
+      }
 
       &::placeholder {
         font-weight: 400;
