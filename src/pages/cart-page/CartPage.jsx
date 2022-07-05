@@ -2,7 +2,7 @@ import "./style.scss";
 import { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { BURGER_PAGE } from "../../routes";
+import { ORDER_PAGE } from "../../routes";
 import BurgerPic from "../../assets/images/burger_sandwich.png";
 import { extrasFood, softDrinks, regularDrinks } from "./data";
 import Extras from "./extras/Extras";
@@ -28,7 +28,7 @@ const CartPage = () => {
     <div className="cart_page">
       <div className="cart_page_container container">
         <div className="cart_page_top">
-          <Link to={BURGER_PAGE}>
+          <Link to={ORDER_PAGE}>
             <AiOutlineArrowLeft /> Back to Dashboard
           </Link>
         </div>
