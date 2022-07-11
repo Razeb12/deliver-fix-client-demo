@@ -47,11 +47,11 @@ const Order = () => {
           </div>
         </div>
       </div>
-      <>
+      <div className="container cards_list_item">
         {tab === 1 && <BurgerPage />}
         {tab === 2 && <PizzaPage />}
         {tab === 3 && <DrinksPage />}
-      </>
+      </div>
     </div>
   );
 };

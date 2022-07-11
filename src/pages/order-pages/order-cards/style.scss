@@ -2,11 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  min-width: 332px;
+  width: auto;
   height: 113px;
   background: #f9f9f9;
   box-shadow: 0px 0.25px 4px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
+
+  .order_card_left {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    @media screen and (max-width: 550px) {
+      gap: 3px;
+    }
+  }
 
   .order_card_img {
     display: flex;
@@ -74,6 +84,7 @@
         line-height: 10px;
         color: #000000;
         width: 118px;
+        margin: 0;
       }
     }
   }
@@ -82,7 +93,7 @@
     display: grid;
     gap: 30px;
     justify-items: end;
-    margin-right: 10px;
+    margin-right: 5px;
     .order_card_right_top {
       width: 24px;
       height: 24px;

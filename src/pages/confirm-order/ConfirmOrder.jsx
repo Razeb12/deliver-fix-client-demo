@@ -63,7 +63,7 @@ const ConfirmOrder = () => {
               <div className="suggestion_title container">
                 <h2>You may also like</h2>
               </div>
-              <div className="suggestion_layout">
+              <div className="suggestion_layout container">
                 {suggestionList.map((item, index) => (
                   <SuggestionCard
                     header={item.title}
