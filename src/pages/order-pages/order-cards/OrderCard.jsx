@@ -24,6 +24,7 @@ const OrderCard = ({
             backgroundSize: "cover",
             width: "110px",
             height: "113px",
+            objectFit: "contain",
           }}
         >
           <div className={discount ? "order_discount" : undefined}>
@@ -33,14 +34,14 @@ const OrderCard = ({
             <p>{duration}</p>
           </div>
         </div>
-      </div>
-      <div className="order_card_center">
-        <div className="order_card_header">
-          <h1>{name}</h1>
-          <p>{minorName}</p>
-        </div>
-        <div className="order_card_body">
-          <p>{description}</p>
+        <div className="order_card_center">
+          <div className="order_card_header">
+            <h1>{name}</h1>
+            <p>{minorName}</p>
+          </div>
+          <div className="order_card_body">
+            <p>{description}</p>
+          </div>
         </div>
       </div>
       <div className="order_card_right">

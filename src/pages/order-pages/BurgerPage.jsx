@@ -7,7 +7,7 @@ const BurgerPage = () => {
     console.log(`${e} added to cart`);
   };
   return (
-    <div className="container food_order">
+    <div className="food_order">
       {BurgerMenu.map((item, index) => (
         <OrderCard
           key={index}
