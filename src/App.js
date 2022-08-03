@@ -27,6 +27,7 @@ import {
   OrderPage,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
+import PrivateRoute from "./PrivateRoutes";
 
 function App() {
   return (
@@ -37,13 +38,15 @@ function App() {
         <Route path={SIGNIN_PAGE} element={<SignInPage />} />
         <Route path={FORGOT_PASSWORD_PAGE} element={<ForgotPasswordPage />} />
         <Route path={RESET_PASSWORD_PAGE} element={<ResetPasswordPage />} />
-        <Route path={CONFIRM_PAGE} element={<ConfirmOrder />} />
-        <Route element={<DashboardLayout />}>
-          <Route path={MAIN_PAGE} element={<MainPage />} />
-          <Route path={CART_PAGE} element={<CartPage />} />
-          <Route path={PROCESS_PAGE} element={<OrderProcess />} />
-          <Route path={TRACKING_PAGE} element={<TrackingPage />} />
-          <Route path={ORDER_PAGE} element={<OrderPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route element={<DashboardLayout />}>
+            <Route path={MAIN_PAGE} element={<MainPage />} />
+            <Route path={CART_PAGE} element={<CartPage />} />
+            <Route path={PROCESS_PAGE} element={<OrderProcess />} />
+            <Route path={TRACKING_PAGE} element={<TrackingPage />} />
+            <Route path={ORDER_PAGE} element={<OrderPage />} />
+          </Route>
+          <Route path={CONFIRM_PAGE} element={<ConfirmOrder />} />
         </Route>
       </Routes>
     </div>
