@@ -12,6 +12,7 @@ import {
   PROCESS_PAGE,
   TRACKING_PAGE,
   ORDER_PAGE,
+  OTP_PAGE,
 } from "./routes";
 import {
   OnboardingScreen,
@@ -25,6 +26,7 @@ import {
   OrderProcess,
   TrackingPage,
   OrderPage,
+  Otppage,
 } from "./pages";
 import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
 import PrivateRoute from "./PrivateRoutes";
@@ -38,6 +40,7 @@ function App() {
         <Route path={SIGNIN_PAGE} element={<SignInPage />} />
         <Route path={FORGOT_PASSWORD_PAGE} element={<ForgotPasswordPage />} />
         <Route path={RESET_PASSWORD_PAGE} element={<ResetPasswordPage />} />
+        <Route path={OTP_PAGE} element={<Otppage />} />
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}>
             <Route path={MAIN_PAGE} element={<MainPage />} />
