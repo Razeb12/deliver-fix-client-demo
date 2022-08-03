@@ -14,9 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthState>
-        <GeneralState>
-          <App />
-        </GeneralState>
+        <App />
       </AuthState>
     </BrowserRouter>
   </React.StrictMode>
