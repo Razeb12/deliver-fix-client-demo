@@ -1,21 +1,88 @@
 import { useReducer } from "react";
 import AuthReducer from "./AuthReducer";
 import AuthContext from "./AuthContext";
-import { SIGNIN, SIGNUP } from "../types";
+import { SIGNIN, SIGNUP, VERIFY_OTP } from "../types";
 import { BASE_URL } from "../../utils/baseUrl";
 import axios from "axios";
 
 const AuthState = ({ children }) => {
   const initialState = {
     userToken: localStorage.getItem("userToken") || null,
+    response: "",
+    user: "",
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
+
+  const signUp = async (fullName, email, phone, password) => {
+    try {
+      const res = await axios.post(`${BASE_URL}/user/register`, {
+        fullName,
+        email,
+        phone,
+        password,
+      });
+      dispatch({
+        type: SIGNUP,
+        payload: res.data.message,
+      });
+      return true;
+    } catch (err) {
+      if (err.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
+  //signin
+  const signIn = async (email, password) => {
+    try {
+      const returnedData = await axios.post(`${BASE_URL}/user/login`, {
+        email: email,
+        password: password,
+      });
+      dispatch({
+        type: SIGNIN,
+        payload: returnedData.data.data.token,
+      });
+      localStorage.setItem("userToken", returnedData.data.data.token);
+      return true;
+    } catch (error) {
+      if (error.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
+  //verify OTP
+  const verifyOTP = async (email, otp) => {
+    try {
+      const returnedData = await axios.post(`${BASE_URL}/user/verifyToken`, {
+        email: email,
+        otp: otp,
+      });
+      dispatch({
+        type: VERIFY_OTP,
+        payload: returnedData.data.status,
+      });
+      return true;
+    } catch (error) {
+      if (error.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
 
   return (
     <AuthContext.Provider
       value={{
         userToken: state.userToken,
+        signUp,
+        signIn,
+        verifyOTP,
       }}
     >
       {children}

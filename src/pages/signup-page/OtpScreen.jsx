@@ -1,28 +1,42 @@
 import "./style.scss";
 import ChefLogo from "../../assets/svgs/chefsvg.svg";
 import PasswordSuccess from "./PasswordSuccess";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import AuthCode from "react-auth-code-input";
+import { SIGNIN_PAGE } from "../../routes";
+import { message, Spin } from "antd";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/auth-context/AuthContext";
 
 const OtpScreen = () => {
-  const [otpCode, setOtpCode] = useState(false);
+  const [otp, setOtp] = useState(false);
   const [istrue, setIsTrue] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const { verifyOTP } = useContext(AuthContext);
   const handleChange = (res) => {
-    setOtpCode(res);
-    console.log(res);
+    setOtp(res);
   };
 
-  const sendOtp = () => {
-    console.log("Sent!!!");
-    setIsTrue(true);
+  const sendOtp = async () => {
+    setLoading(true);
+    const email = localStorage.getItem("userEmail");
+    const res = await verifyOTP(email, otp);
+    if (res) {
+      message.success("OTP verified successfully");
+      setIsTrue(true);
+      setLoading(false);
+    } else {
+      message.error("OTP verification failed, try again");
+      setIsTrue(false);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (otpCode?.length === 4) {
+    if (otp?.length === 4) {
       sendOtp();
     }
-  }, [otpCode?.length]);
+  }, [otp?.length]);
   return (
     <>
       {istrue ? (
@@ -44,6 +58,9 @@ const OtpScreen = () => {
                 containerClassName="otp_container"
                 className="otp_container"
               />
+            </div>
+            <div className="spinner" style={{ textAlign: "center" }}>
+              {loading && <Spin />}
             </div>
           </div>
         </div>

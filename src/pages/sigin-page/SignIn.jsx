@@ -1,25 +1,41 @@
 import "./style.scss";
 import ChefLogo from "../../assets/svgs/chefsvg.svg";
-import { Link } from "react-router-dom";
-import { Form, Input } from "antd";
-import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Form, Input, message } from "antd";
+import { useRef, useState, useEffect, useContext } from "react";
 import PrimaryButton from "../../components/buttons/primary-button/PrimaryButton";
 import LoadingButton from "../../components/buttons/loading-button/LoadingButton";
 import SecondaryButton from "../../components/buttons/secondary-button/SecondaryButton";
 import FacebookSVG from "../../assets/svgs/facebook_svg.svg";
 import AuxiliaryButton from "../../components/buttons/auxiliary-button/AuxiliaryButton";
 import GoogleSVG from "../../assets/svgs/google_svg.svg";
-import { SIGNUP_PAGE } from "../../routes";
-
+import { SIGNUP_PAGE, MAIN_PAGE } from "../../routes";
+import AuthContext from "../../context/auth-context/AuthContext";
 const SignIn = () => {
+  const { userToken, signIn } = useContext(AuthContext);
   const [form] = Form.useForm();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const onFinish = (values) => {
+  const navigate = useNavigate();
+  const onFinish = async (values) => {
     setLoading(true);
-    console.log(values);
-    setLoading(false);
+    const { email, password } = values;
+
+    const login = await signIn(email, password);
+    if (login) {
+      setLoading(false);
+      message.success("Login Successful");
+      navigate(MAIN_PAGE);
+    } else {
+      setLoading(false);
+      message.error("Unable to login user, please verify details");
+    }
   };
+
+  useEffect(() => {
+    if (userToken) navigate(MAIN_PAGE);
+    else return;
+  }, [userToken, navigate]);
   return (
     <div className="sign_container">
       <div className="sign_body  container">
