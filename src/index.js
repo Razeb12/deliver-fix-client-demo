@@ -6,12 +6,18 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import { BrowserRouter } from "react-router-dom";
+import AuthState from "./context/auth-context/AuthState";
+import GeneralState from "./context/general-context/GeneralState";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthState>
+        <GeneralState>
+          <App />
+        </GeneralState>
+      </AuthState>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -11,7 +11,7 @@ import AuxiliaryButton from "../../components/buttons/auxiliary-button/Auxiliary
 import GoogleSVG from "../../assets/svgs/google_svg.svg";
 import { SIGNUP_PAGE } from "../../routes";
 
-const SignUp = () => {
+const SignIn = () => {
   const [form] = Form.useForm();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -94,4 +94,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
