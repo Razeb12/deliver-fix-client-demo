@@ -1,4 +1,4 @@
-.loading_container {
+.loading_button {
   .loading_btn {
     width: 318px;
     height: 40px;
@@ -17,6 +17,7 @@
     &:active {
       background: #1777f2;
       border: 1px solid #1777f2;
+      color: #fff;
     }
   }
 }

@@ -1,22 +1,22 @@
 import "./style.scss";
-import ChefLogo from "../../assets/svgs/chefsvg.svg";
+import DeliverfixLogo from "../../assets/images/new_logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, message } from "antd";
-import { useRef, useState, useContext } from "react";
+import { useRef, useState, useContext, useEffect } from "react";
 import PrimaryButton from "../../components/buttons/primary-button/PrimaryButton";
 import LoadingButton from "../../components/buttons/loading-button/LoadingButton";
 import SecondaryButton from "../../components/buttons/secondary-button/SecondaryButton";
 import FacebookSVG from "../../assets/svgs/facebook_svg.svg";
 import AuxiliaryButton from "../../components/buttons/auxiliary-button/AuxiliaryButton";
 import GoogleSVG from "../../assets/svgs/google_svg.svg";
-import { SIGNIN_PAGE, OTP_PAGE } from "../../routes";
+import { SIGNIN_PAGE, OTP_PAGE, MAIN_PAGE } from "../../routes";
 import AuthContext from "../../context/auth-context/AuthContext";
 
 const SignUp = () => {
   const [form] = Form.useForm();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const { signUp } = useContext(AuthContext);
+  const { signUp, userToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const onFinish = async (values) => {
     setLoading(true);
@@ -33,11 +33,16 @@ const SignUp = () => {
       message.error("Unable to signup user, please verify details");
     }
   };
+
+  useEffect(() => {
+    if (userToken) navigate(MAIN_PAGE);
+    else return;
+  }, [userToken, navigate]);
   return (
     <div className="sign_container">
       <div className="sign_body  container">
         <div className="sign_header">
-          <img src={ChefLogo} alt="logo" />
+          <img src={DeliverfixLogo} alt="logo" />
           <h1>Registration</h1>
         </div>
         <div className="sign_form">

@@ -1,5 +1,5 @@
 import "./style.scss";
-import ChefLogo from "../../assets/svgs/chefsvg.svg";
+import DeliverfixLogo from "../../assets/images/new_logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Input, message } from "antd";
 import { useRef, useState, useEffect, useContext } from "react";
@@ -40,7 +40,7 @@ const SignIn = () => {
     <div className="sign_container">
       <div className="sign_body  container">
         <div className="sign_header">
-          <img src={ChefLogo} alt="logo" />
+          <img src={DeliverfixLogo} alt="logo" />
           <h1>Login</h1>
         </div>
         <div className="sign_form">
@@ -79,8 +79,12 @@ const SignIn = () => {
             <div className="forgot_link">
               <Link to="/forgot-password">Forgot Password!</Link>
             </div>
-            {!loading && <PrimaryButton buttonText="Login" htmlType="submit" />}
-            {loading && <LoadingButton buttonText="Loading..." />}
+            <div className="submit_btns">
+              {!loading && (
+                <PrimaryButton buttonText="Login" htmlType="submit" />
+              )}
+              {loading && <LoadingButton buttonText="Please wait..." />}
+            </div>
           </Form>
           <div className="form_extra_auth">
             <div className="or_sign">
