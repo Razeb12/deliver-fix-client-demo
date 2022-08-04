@@ -3,7 +3,7 @@ import { Button } from "antd";
 
 const PrimaryButton = ({ buttonText }) => {
   return (
-    <div className="loading_container">
+    <div className="loading_button">
       <Button htmlType="button" className="loading_btn" loading>
         {buttonText}
       </Button>

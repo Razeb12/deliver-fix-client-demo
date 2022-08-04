@@ -4,24 +4,18 @@
   background-size: cover;
   background-color: #fff;
   height: 100vh;
-  display: grid;
 
   .sign_body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto;
 
     .sign_header {
       display: grid;
       gap: 25px;
       text-align: center;
-
-      img {
-        width: 140px;
-        height: 150px;
-      }
 
       h1 {
         font-style: normal;

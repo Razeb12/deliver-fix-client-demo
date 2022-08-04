@@ -1,5 +1,5 @@
 import "./style.scss";
-import ChefLogo from "../../assets/svgs/chefsvg.svg";
+import DeliverfixLogo from "../../assets/images/new_logo.png";
 import PasswordSuccess from "./PasswordSuccess";
 import { useEffect, useState } from "react";
 import AuthCode from "react-auth-code-input";
@@ -31,7 +31,7 @@ const OtpScreen = () => {
         <div className="sign_container">
           <div className="sign_body  container">
             <div className="sign_header">
-              <img src={ChefLogo} alt="logo" />
+              <img src={DeliverfixLogo} alt="logo" />
             </div>
             <div className="sign_otp_form">
               <p>We sent you an OTP code. Please enter for verification</p>

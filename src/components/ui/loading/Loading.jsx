@@ -1,10 +1,10 @@
 import "./style.scss";
-import ChefLogo from "../../../assets/svgs/chefsvg.svg";
+import RiderLogo from "../../../assets/images/loading_icon.png";
 
 const Loading = () => {
   return (
     <div className="loading_container">
-      <img src={ChefLogo} alt="loading..." />
+      <img src={RiderLogo} alt="loading..." />
     </div>
   );
 };
