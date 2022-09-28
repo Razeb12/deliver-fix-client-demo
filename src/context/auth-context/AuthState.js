@@ -16,7 +16,7 @@ const AuthState = ({ children }) => {
 
   const signUp = async (fullName, email, phone, password) => {
     try {
-      const res = await axios.post(`${BASE_URL}/user/register`, {
+      const res = await axios.post(`${BASE_URL}/api/v1/auth/presignup`, {
         fullName,
         email,
         phone,
@@ -38,15 +38,18 @@ const AuthState = ({ children }) => {
   //signin
   const signIn = async (email, password) => {
     try {
-      const returnedData = await axios.post(`${BASE_URL}/user/login`, {
-        email: email,
-        password: password,
-      });
+      const returnedData = await axios.post(
+        `${BASE_URL}/api/v1/auth/signin?q=customer`,
+        {
+          email: email,
+          password: password,
+        }
+      );
       dispatch({
         type: SIGNIN,
-        payload: returnedData.data.data.token,
+        payload: returnedData.data.data,
       });
-      localStorage.setItem("userToken", returnedData.data.data.token);
+      localStorage.setItem("userToken", returnedData.data.data);
       return true;
     } catch (error) {
       if (error.response.status === false) {
@@ -59,13 +62,16 @@ const AuthState = ({ children }) => {
   //verify OTP
   const verifyOTP = async (email, otp) => {
     try {
-      const returnedData = await axios.post(`${BASE_URL}/user/verifyToken`, {
-        email: email,
-        otp: otp,
-      });
+      const returnedData = await axios.post(
+        `${BASE_URL}/api/v1/auth/signup?q=customer`,
+        {
+          email: email,
+          otp: otp,
+        }
+      );
       dispatch({
         type: VERIFY_OTP,
-        payload: returnedData.data.status,
+        payload: returnedData.data.data,
       });
       return true;
     } catch (error) {
