@@ -6,7 +6,7 @@ import PrimaryButton from "../../components/buttons/primary-button/PrimaryButton
 import LoadingButton from "../../components/buttons/loading-button/LoadingButton";
 import AuthContext from "../../context/auth-context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { OTP_PAGE } from "../../routes";
+import { RESET_PASSWORD_PAGE } from "../../routes";
 
 const ForgotPassword = () => {
   const { forgotPassword } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
     if (forgotpassword) {
       setLoading(false);
       message.success("Email sent successfully");
-      navigate(OTP_PAGE);
+      navigate(RESET_PASSWORD_PAGE, { state: { email: email } });
     } else {
       setLoading(false);
       message.error("Unable to send email, please verify details");
