@@ -1,7 +1,14 @@
 import { useReducer } from "react";
 import AuthReducer from "./AuthReducer";
 import AuthContext from "./AuthContext";
-import { SIGNIN, SIGNUP, VERIFY_OTP } from "../types";
+import {
+  SIGNIN,
+  SIGNUP,
+  VERIFY_OTP,
+  FORGOT_PASSWORD,
+  RESET_PASSWORD,
+  RESEND_OTP,
+} from "../types";
 import { BASE_URL } from "../../utils/baseUrl";
 import axios from "axios";
 
@@ -10,6 +17,7 @@ const AuthState = ({ children }) => {
     userToken: localStorage.getItem("userToken") || null,
     response: "",
     user: "",
+    message: "",
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -81,6 +89,74 @@ const AuthState = ({ children }) => {
     }
   };
 
+  //resend otp
+  const resendOTP = async (email) => {
+    try {
+      const returnedData = await axios.post(
+        `${BASE_URL}/api/v1/auth/resend?q=customer`,
+        {
+          email: email,
+        }
+      );
+      dispatch({
+        type: RESEND_OTP,
+        payload: returnedData.data.message,
+      });
+      return true;
+    } catch (error) {
+      if (error.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
+  //forgot password
+  const forgotPassword = async (email) => {
+    try {
+      const returnedData = await axios.post(
+        `${BASE_URL}/api/v1/auth/forgotpassword?q=customer`,
+        {
+          email: email,
+        }
+      );
+      dispatch({
+        type: FORGOT_PASSWORD,
+        payload: returnedData.data.message,
+      });
+      return true;
+    } catch (error) {
+      if (error.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
+  //reset password
+  const resetPassword = async (email, otp, password) => {
+    try {
+      const returnedData = await axios.post(
+        `${BASE_URL}/api/v1/auth/newpassword?q=company`,
+        {
+          email: email,
+          otp: otp,
+          password: password,
+        }
+      );
+      dispatch({
+        type: RESET_PASSWORD,
+        payload: returnedData.data.data,
+      });
+      return true;
+    } catch (error) {
+      if (error.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -88,6 +164,9 @@ const AuthState = ({ children }) => {
         signUp,
         signIn,
         verifyOTP,
+        forgotPassword,
+        resetPassword,
+        resendOTP,
       }}
     >
       {children}

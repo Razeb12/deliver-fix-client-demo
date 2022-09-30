@@ -23,7 +23,7 @@ const SignUp = () => {
     const { fullName, email, password } = values;
 
     const signup = await signUp(fullName, email, password);
-    if (signup === true) {
+    if (signup) {
       setLoading(false);
       message.success("Signup Successful");
       navigate(OTP_PAGE);

@@ -1,18 +1,31 @@
 import "./style.scss";
 import DeliverfixLogo from "../../assets/images/new_logo.png";
-import { Form, Input } from "antd";
-import { useRef, useState } from "react";
+import { Form, Input, message } from "antd";
+import { useRef, useState, useContext } from "react";
 import PrimaryButton from "../../components/buttons/primary-button/PrimaryButton";
 import LoadingButton from "../../components/buttons/loading-button/LoadingButton";
+import AuthContext from "../../context/auth-context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { OTP_PAGE } from "../../routes";
 
 const ForgotPassword = () => {
+  const { forgotPassword } = useContext(AuthContext);
   const [form] = Form.useForm();
+  const navigate = useNavigate();
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     setLoading(true);
-    console.log(values);
-    setLoading(false);
+    const { email } = values;
+    const forgotpassword = await forgotPassword(email);
+    if (forgotpassword) {
+      setLoading(false);
+      message.success("Email sent successfully");
+      navigate(OTP_PAGE);
+    } else {
+      setLoading(false);
+      message.error("Unable to send email, please verify details");
+    }
   };
   return (
     <div className="sign_container">
@@ -29,12 +42,12 @@ const ForgotPassword = () => {
               rules={[
                 {
                   required: true,
-                  message: "Email or Phone Number is required!",
+                  message: "Email address is required!",
                 },
               ]}
             >
               <Input
-                placeholder="Email or Phone Number"
+                placeholder="Email address"
                 className="form_input"
                 type="text"
               />
