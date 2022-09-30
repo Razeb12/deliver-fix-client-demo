@@ -14,12 +14,11 @@ const AuthState = ({ children }) => {
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
-  const signUp = async (fullName, email, phone, password) => {
+  const signUp = async (fullName, email, password) => {
     try {
       const res = await axios.post(`${BASE_URL}/api/v1/auth/presignup`, {
         fullName,
         email,
-        phone,
         password,
       });
       dispatch({

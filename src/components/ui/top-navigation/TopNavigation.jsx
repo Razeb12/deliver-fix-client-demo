@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { BsFillCartFill } from "react-icons/bs";
-import { Drawer } from "antd";
+import { Drawer, message } from "antd";
 import ProfileIcon from "../../../assets/svgs/profile_icon.svg";
 import PaymentIcon from "../../../assets/svgs/payment_icon.svg";
 import NotificationIcon from "../../../assets/svgs/notification_icon.svg";
@@ -15,6 +15,7 @@ import { CART_PAGE } from "../../../routes";
 
 const TopNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
@@ -46,6 +47,20 @@ const TopNavigation = () => {
       imgUrl: DeleteIcon,
     },
   ];
+
+  const removeToken = () => {
+    setLoading(true);
+    const emptyLS = localStorage.removeItem("userToken");
+    if (!emptyLS) {
+      message.success("Logout success!");
+      setLoading(false);
+      window.location.replace("/signin");
+    } else {
+      message.error("Logout failed!");
+      setLoading(false);
+      return;
+    }
+  };
   return (
     <div className="container top_navigation_container">
       <div className="hamburger_menu">
@@ -71,8 +86,9 @@ const TopNavigation = () => {
           ))}
 
           <div className="logout_link">
-            <p>
-              <img src={LogoutIcon} alt="" /> Log Out
+            <p onClick={removeToken}>
+              <img src={LogoutIcon} alt="" />{" "}
+              {loading ? <span>Logging Out...</span> : <span>Log Out</span>}
             </p>
           </div>
         </Drawer>

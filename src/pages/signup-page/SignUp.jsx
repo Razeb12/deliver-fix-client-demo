@@ -20,10 +20,10 @@ const SignUp = () => {
   const navigate = useNavigate();
   const onFinish = async (values) => {
     setLoading(true);
-    const { fullName, email, phone, password } = values;
+    const { fullName, email, password } = values;
 
-    const signup = await signUp(fullName, email, phone, password);
-    if (signup) {
+    const signup = await signUp(fullName, email, password);
+    if (signup === true) {
       setLoading(false);
       message.success("Signup Successful");
       navigate(OTP_PAGE);
