@@ -111,9 +111,9 @@ const MainPage = () => {
         <div ageclassName="mainpage_yt">
           <iframe
             src="https://youtube.com/embed/F9NG_nFD2m0"
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
+            allowFullScreen
             title="Making Burger"
             width="100%"
             height="158"

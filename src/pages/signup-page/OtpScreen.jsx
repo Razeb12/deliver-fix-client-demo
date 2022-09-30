@@ -32,7 +32,7 @@ const OtpScreen = () => {
   };
 
   useEffect(() => {
-    if (otp?.length === 4) {
+    if (otp?.length === 6) {
       sendOtp();
     }
   }, [otp?.length]);
@@ -53,7 +53,7 @@ const OtpScreen = () => {
               <AuthCode
                 onChange={handleChange}
                 allowedCharacters="numeric"
-                length={4}
+                length={6}
                 containerClassName="otp_container"
                 className="otp_container"
               />
