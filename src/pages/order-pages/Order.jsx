@@ -23,12 +23,22 @@ const Order = () => {
             <span>
               <img src={BurgerIcon} alt="tab-one" />
             </span>
-            Burger
+            Foods
           </div>
           <div
             className="order-food-menu__item"
             onClick={() => handleTab(2)}
             style={{ backgroundColor: tab === 2 ? "#A9B021" : undefined }}
+          >
+            <span>
+              <img src={BurgerIcon} alt="tab-one" />
+            </span>
+            Burger
+          </div>
+          <div
+            className="order-food-menu__item"
+            onClick={() => handleTab(3)}
+            style={{ backgroundColor: tab === 3 ? "#A9B021" : undefined }}
           >
             <span>
               <img src={PizzaIcon} alt="tab-two" />
@@ -37,8 +47,8 @@ const Order = () => {
           </div>
           <div
             className="order-food-menu__item"
-            onClick={() => handleTab(3)}
-            style={{ backgroundColor: tab === 3 ? "#A9B021" : undefined }}
+            onClick={() => handleTab(4)}
+            style={{ backgroundColor: tab === 4 ? "#A9B021" : undefined }}
           >
             <span>
               <img src={DrinksIcon} alt="tab-three" />
@@ -49,8 +59,8 @@ const Order = () => {
       </div>
       <div className="container cards_list_item">
         {tab === 1 && <BurgerPage />}
-        {tab === 2 && <PizzaPage />}
-        {tab === 3 && <DrinksPage />}
+        {/*         {tab === 2 && <PizzaPage />}
+        {tab === 3 && <DrinksPage />} */}
       </div>
     </div>
   );
