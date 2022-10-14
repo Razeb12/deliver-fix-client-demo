@@ -1,7 +1,7 @@
 import { useReducer, useContext } from "react";
 import GeneralContext from "./GeneralContext";
 import GeneralReducer from "./GeneralReducer";
-import { GET_ALL_PRODUCTS } from "../types";
+import { GET_ALL_PRODUCTS, GET_PRODUCT_BY_CATEGORY } from "../types";
 import { BASE_URL } from "../../utils/baseUrl";
 import AuthContext from "../auth-context/AuthContext";
 import axios from "axios";
@@ -9,6 +9,7 @@ import axios from "axios";
 const GeneralState = ({ children }) => {
   const initialState = {
     products: {},
+    categories: {},
   };
 
   const { userToken } = useContext(AuthContext);
