@@ -1,4 +1,8 @@
-import { GET_ALL_PRODUCTS, GET_PRODUCT_BY_CATEGORY } from "../types";
+import {
+  GET_ALL_PRODUCTS,
+  GET_PRODUCT_BY_CATEGORY,
+  GET_CATEGORIES,
+} from "../types";
 
 const GeneralReducer = (prevState, { type, payload }) => {
   switch (type) {
@@ -11,6 +15,11 @@ const GeneralReducer = (prevState, { type, payload }) => {
       return {
         ...prevState,
         categories: payload,
+      };
+    case GET_CATEGORIES:
+      return {
+        ...prevState,
+        categoriestypes: payload,
       };
     default:
       return prevState;

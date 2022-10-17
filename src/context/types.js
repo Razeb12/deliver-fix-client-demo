@@ -9,3 +9,4 @@ export const GET_PRODUCT_BY_CATEGORY = "GET_PRODUCT_BY_CATEGORY";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_CART = "GET_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const GET_CATEGORIES = "GET_CATEGORIES";
