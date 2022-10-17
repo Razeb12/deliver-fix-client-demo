@@ -118,7 +118,7 @@
       }
 
       .ratings {
-        display: flex;
+        /*         display: flex; */
         align-items: center;
         gap: 5px;
         .anticon svg {
@@ -132,6 +132,7 @@
           line-height: 7px;
           color: #000000;
           margin: 0;
+          text-align: end;
         }
       }
     }

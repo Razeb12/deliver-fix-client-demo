@@ -2,7 +2,7 @@ import OrderCard from "./order-cards/OrderCard";
 import { Pagination } from "antd";
 import { useContext, useEffect } from "react";
 import "./style.scss";
-import { BurgerMenu } from "./data";
+import BurgerOne from "../../assets/images/burgerone.png";
 import GeneralContext from "../../context/general-context/GeneralContext";
 
 const BurgerPage = () => {
@@ -16,19 +16,21 @@ const BurgerPage = () => {
     getAllProducts(page, 6);
   };
 
-  console.log(products);
-
   return (
-    <div className="food_order">
-      <div className="order-food__list">
-        {products.data &&
-          products.data.map((item, index) => (
+    <>
+      <div className="food_order">
+        {products &&
+          products[0]?.map((item, index) => (
             <OrderCard
               key={index}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-              description={item.description}
+              image={item?.image || BurgerOne}
+              name={item?.articleTextLong}
+              price={item?.externalSellingPrice || 0}
+              description={item.description || "No description"}
+              discount={item?.discount || false}
+              duration={item?.duration || "20-30mins"}
+              rating={item?.externalRating || 0}
+              reviews={item?.externalRating?.length || 0}
             />
           ))}
       </div>
@@ -39,35 +41,8 @@ const BurgerPage = () => {
           onChange={handlePagination}
         />
       </div>
-    </div>
+    </>
   );
 };
-
-/*  return (
-    <div className="food_order">
-      {BurgerMenu.map((item, index) => (
-        <OrderCard
-          key={index}
-          name={item.name}
-          minorName={item.minorName}
-          price={item.price}
-          rating={item.rating}
-          reviews={item.reviews}
-          image={item.image}
-          description={item.description}
-          discount={item.discount}
-          duration={item.duration}
-          onClick={() => logToConsole(item.name)}
-        />
-      ))}
-      <div
-        className="food_pagination"
-        style={{ marginTop: "10px", textAlign: "center" }}
-      >
-        <Pagination defaultCurrent={1} total={50} />
-      </div>
-    </div>
-  );
-}; */
 
 export default BurgerPage;
