@@ -11,7 +11,7 @@
   .order_card_left {
     display: flex;
     gap: 30px;
-    align-items: center;
+    /*     align-items: center; */
 
     @media screen and (max-width: 550px) {
       gap: 3px;
