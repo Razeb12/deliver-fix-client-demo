@@ -5,11 +5,17 @@ import GeneralContext from "../../context/general-context/GeneralContext";
 import DrinksPage from "./GroupedFoodPanel";
 const Order = () => {
   const [tab, setTab] = useState(1);
+  const [loading, setLoading] = useState(true);
   const { getCategories, categoriestypes } = useContext(GeneralContext);
   const [catId, setCatId] = useState("");
 
   useEffect(() => {
-    getCategories();
+    const getCategoriesData = async () => {
+      setLoading(true);
+      await getCategories();
+      setLoading(false);
+    };
+    getCategoriesData();
   }, []);
 
   const handleTab = (index) => {
@@ -30,25 +36,39 @@ const Order = () => {
             </span>
             Foods
           </div>
-          {categoriestypes &&
-            categoriestypes[0]?.map((item, index) => (
-              <div
-                className="order-food-menu__item"
-                key={index}
-                onClick={() => {
-                  handleTab(index + 2);
-                  setCatId(item.id);
-                }}
-                style={{
-                  backgroundColor: tab === index + 2 ? "#A9B021" : undefined,
-                }}
-              >
-                <span>
-                  <img src={BurgerIcon} alt="tab-one" />
-                </span>
-                {item?.externalCategoryText}
-              </div>
-            ))}
+          {loading && (
+            <div
+              style={{
+                margin: "0",
+              }}
+            >
+              Getting Menus, please wait...
+            </div>
+          )}
+          {!loading && (
+            <>
+              {categoriestypes &&
+                categoriestypes[0]?.map((item, index) => (
+                  <div
+                    className="order-food-menu__item"
+                    key={index}
+                    onClick={() => {
+                      handleTab(index + 2);
+                      setCatId(item.id);
+                    }}
+                    style={{
+                      backgroundColor:
+                        tab === index + 2 ? "#A9B021" : undefined,
+                    }}
+                  >
+                    <span>
+                      <img src={BurgerIcon} alt="tab-one" />
+                    </span>
+                    {item?.externalCategoryText}
+                  </div>
+                ))}
+            </>
+          )}
         </div>
       </div>
       <div className="container cards_list_item">

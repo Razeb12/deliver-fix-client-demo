@@ -6,17 +6,24 @@ import GeneralContext from "../../context/general-context/GeneralContext";
 import Spinner from "../../components/spinner/Spinner";
 const GroupedFoodPanel = ({ catId }) => {
   const [loading, setLoading] = useState(false);
-  const { categories, getProductByCategory } = useContext(GeneralContext);
+  const { categories, getProductByCategory, isLoading } =
+    useContext(GeneralContext);
 
   useEffect(() => {
-    getProductByCategory(catId);
+    const getProducts = async () => {
+      setLoading(true);
+      await getProductByCategory(catId);
+      setLoading(false);
+    };
+    getProducts();
   }, [catId]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (categories?.length >= 1) {
       setLoading(false);
     }
-  }, [categories?.length]);
+  }, [categories?.length]); */
+
   return (
     <>
       {loading && (

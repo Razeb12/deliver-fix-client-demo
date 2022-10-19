@@ -10,14 +10,13 @@ const AllFoodPanel = () => {
   const { products, getAllProducts } = useContext(GeneralContext);
 
   useEffect(() => {
-    getAllProducts(1, 6);
-  }, []);
-
-  useEffect(() => {
-    if (products?.length >= 1) {
+    const getProducts = async () => {
+      setLoading(true);
+      await getAllProducts(1, 10);
       setLoading(false);
-    }
-  }, [products?.length]);
+    };
+    getProducts();
+  }, []);
 
   const handlePagination = (page) => {
     getAllProducts(page, 6);

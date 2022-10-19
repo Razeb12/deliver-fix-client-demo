@@ -16,7 +16,7 @@ const GeneralState = ({ children }) => {
     categories: {},
     categoriestypes: {},
     singleProduct: {},
-    isLoading: false,
+    isLoading: true,
   };
 
   const { userToken } = useContext(AuthContext);
@@ -126,6 +126,7 @@ const GeneralState = ({ children }) => {
         categoriestypes: state.categoriestypes,
         categories: state.categories,
         singleProduct: state.singleProduct,
+        isLoading: state.isLoading,
         getCategories,
         getAllProducts,
         getProductByCategory,
