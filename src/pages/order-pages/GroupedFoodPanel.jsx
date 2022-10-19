@@ -5,7 +5,7 @@ import BurgerIcon from "../../assets/svgs/burger.svg";
 import GeneralContext from "../../context/general-context/GeneralContext";
 import Spinner from "../../components/spinner/Spinner";
 const GroupedFoodPanel = ({ catId }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { categories, getProductByCategory } = useContext(GeneralContext);
 
   useEffect(() => {

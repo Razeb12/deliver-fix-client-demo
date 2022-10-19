@@ -4,7 +4,6 @@ import {
   GET_CATEGORIES,
   GET_PRODUCT_BY_ID,
 } from "../types";
-
 const GeneralReducer = (prevState, { type, payload }) => {
   switch (type) {
     case GET_ALL_PRODUCTS:
