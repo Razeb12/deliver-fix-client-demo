@@ -6,12 +6,18 @@ import BurgerOne from "../../assets/images/burgerone.png";
 import GeneralContext from "../../context/general-context/GeneralContext";
 import Spinner from "../../components/spinner/Spinner";
 const AllFoodPanel = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { products, getAllProducts } = useContext(GeneralContext);
 
   useEffect(() => {
     getAllProducts(1, 6);
   }, []);
+
+  useEffect(() => {
+    if (products?.length >= 1) {
+      setLoading(false);
+    }
+  }, [products?.length]);
 
   const handlePagination = (page) => {
     getAllProducts(page, 6);

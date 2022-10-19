@@ -11,6 +11,12 @@ const GroupedFoodPanel = ({ catId }) => {
   useEffect(() => {
     getProductByCategory(catId);
   }, [catId]);
+
+  useEffect(() => {
+    if (categories?.length >= 1) {
+      setLoading(false);
+    }
+  }, [categories?.length]);
   return (
     <>
       {loading && (
