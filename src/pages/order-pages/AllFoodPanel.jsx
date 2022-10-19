@@ -5,7 +5,7 @@ import "./style.scss";
 import BurgerOne from "../../assets/images/burgerone.png";
 import GeneralContext from "../../context/general-context/GeneralContext";
 
-const BurgerPage = () => {
+const AllFoodPanel = () => {
   const { products, getAllProducts } = useContext(GeneralContext);
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const BurgerPage = () => {
               duration={item?.duration || "20-30mins"}
               rating={item?.externalRating || 0}
               reviews={item?.externalRating?.length || 0}
+              id={item?.id}
             />
           ))}
       </div>
@@ -45,4 +46,4 @@ const BurgerPage = () => {
   );
 };
 
-export default BurgerPage;
+export default AllFoodPanel;

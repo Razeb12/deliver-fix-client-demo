@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import BurgerIcon from "../../assets/svgs/burger.svg";
-import BurgerPage from "./BurgerPage";
+import BurgerPage from "./AllFoodPanel";
 import GeneralContext from "../../context/general-context/GeneralContext";
-import DrinksPage from "./DrinksPage";
+import DrinksPage from "./GroupedFoodPanel";
 const Order = () => {
   const [tab, setTab] = useState(1);
   const { getCategories, categoriestypes } = useContext(GeneralContext);
@@ -34,6 +34,7 @@ const Order = () => {
             categoriestypes[0]?.map((item, index) => (
               <div
                 className="order-food-menu__item"
+                key={index}
                 onClick={() => {
                   handleTab(index + 2);
                   setCatId(item.id);

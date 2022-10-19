@@ -44,7 +44,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}>
             <Route path={MAIN_PAGE} element={<MainPage />} />
-            <Route path={CART_PAGE} element={<CartPage />} />
+            <Route path="/cart/:id" element={<CartPage />} />
             <Route path={PROCESS_PAGE} element={<OrderProcess />} />
             <Route path={TRACKING_PAGE} element={<TrackingPage />} />
             <Route path={ORDER_PAGE} element={<OrderPage />} />

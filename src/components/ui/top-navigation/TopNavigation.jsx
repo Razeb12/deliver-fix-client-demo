@@ -11,7 +11,7 @@ import NotificationIcon from "../../../assets/svgs/notification_icon.svg";
 import SettingsIcon from "../../../assets/svgs/settings_icon.svg";
 import DeleteIcon from "../../../assets/svgs/delete_icon.svg";
 import LogoutIcon from "../../../assets/svgs/exit_icon.svg";
-import { CART_PAGE } from "../../../routes";
+import { CONFIRM_PAGE } from "../../../routes";
 
 const TopNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +97,7 @@ const TopNavigation = () => {
         <AiOutlineSearch color="#ff5c00" />
         <input type="text" placeholder="Search Food" />
       </div>
-      <Link to={CART_PAGE}>
+      <Link to={CONFIRM_PAGE}>
         <div className="notification_icon">
           <BsFillCartFill size={18} color="#A9B021" />
         </div>

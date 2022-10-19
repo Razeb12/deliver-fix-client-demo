@@ -2,6 +2,7 @@ import {
   GET_ALL_PRODUCTS,
   GET_PRODUCT_BY_CATEGORY,
   GET_CATEGORIES,
+  GET_PRODUCT_BY_ID,
 } from "../types";
 
 const GeneralReducer = (prevState, { type, payload }) => {
@@ -20,6 +21,11 @@ const GeneralReducer = (prevState, { type, payload }) => {
       return {
         ...prevState,
         categoriestypes: payload,
+      };
+    case GET_PRODUCT_BY_ID:
+      return {
+        ...prevState,
+        singleProduct: payload,
       };
     default:
       return prevState;

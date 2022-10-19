@@ -8,16 +8,16 @@ import { Checkbox } from "antd";
 import SuccessPage from "./success-page/SuccessPage";
 
 const ConfirmOrder = () => {
-  const [count, setCount] = useState(1);
+  /* const [count, setCount] = useState(1); */
   const [isOk, setIsOk] = useState(false);
-  const increase = () => {
+  /*   const increase = () => {
     setCount(count + 1);
   };
 
   const decrease = () => {
     if (count === 1) return;
     setCount(count - 1);
-  };
+  }; */
 
   const handleSubmit = () => {
     setIsOk(true);
@@ -46,7 +46,7 @@ const ConfirmOrder = () => {
                   <h2>
                     <span>€</span>102.49
                   </h2>
-                  <div className="count_container">
+                  {/* <div className="count_container">
                     <div className="control_icon" onClick={increase}>
                       +
                     </div>
@@ -54,7 +54,7 @@ const ConfirmOrder = () => {
                     <div className="control_icon" onClick={decrease}>
                       -
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

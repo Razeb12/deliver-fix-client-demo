@@ -15,11 +15,14 @@ const GeneralState = ({ children }) => {
     products: {},
     categories: {},
     categoriestypes: {},
+    singleProduct: {},
+    isLoading: false,
   };
 
   const { userToken } = useContext(AuthContext);
   const [state, dispatch] = useReducer(GeneralReducer, initialState);
 
+  //set loading to true on all api calls
   const getAllProducts = async (page, limit) => {
     try {
       const returnedData = await axios.get(
@@ -92,12 +95,37 @@ const GeneralState = ({ children }) => {
     }
   };
 
+  /* const getProductById = async (id) => {
+    try {
+      const returnedData = await axios.get(
+        `${BASE_URL}/api/v1/customer/products/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+            "x-api-key": "teecee",
+          },
+        }
+      );
+      dispatch({
+        type: GET_PRODUCT_BY_ID,
+        payload: returnedData.data.data,
+      });
+      return true;
+    } catch (err) {
+      if (err.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  }; */
+
   return (
     <GeneralContext.Provider
       value={{
         products: state.products,
         categoriestypes: state.categoriestypes,
         categories: state.categories,
+        singleProduct: state.singleProduct,
         getCategories,
         getAllProducts,
         getProductByCategory,
