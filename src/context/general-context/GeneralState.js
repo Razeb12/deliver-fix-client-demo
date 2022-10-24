@@ -6,6 +6,7 @@ import {
   GET_PRODUCT_BY_CATEGORY,
   GET_CATEGORIES,
   ADD_TO_CART,
+  GET_CART,
 } from "../types";
 import { BASE_URL } from "../../utils/baseUrl";
 import AuthContext from "../auth-context/AuthContext";
@@ -18,6 +19,7 @@ const GeneralState = ({ children }) => {
     categoriestypes: {},
     singleProduct: {},
     addTocart: {},
+    cart: {},
     isLoading: true,
   };
 
@@ -154,6 +156,29 @@ const GeneralState = ({ children }) => {
     }
   };
 
+  //get cart
+  const getCart = async () => {
+    try {
+      const returnedData = await axios.get(`${BASE_URL}/api/v1/customer/cart`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          "x-api-key": "teecee",
+        },
+      });
+      console.log(returnedData);
+      dispatch({
+        type: GET_CART,
+        payload: returnedData.data.data,
+      });
+      return true;
+    } catch (err) {
+      if (err.response.status === false) {
+        return false;
+      }
+      return false;
+    }
+  };
+
   return (
     <GeneralContext.Provider
       value={{
@@ -163,10 +188,12 @@ const GeneralState = ({ children }) => {
         singleProduct: state.singleProduct,
         isLoading: state.isLoading,
         addTocart: state.addTocart,
+        cart: state.cart,
         getCategories,
         getAllProducts,
         getProductByCategory,
         addItemToCart,
+        getCart,
       }}
     >
       {children}

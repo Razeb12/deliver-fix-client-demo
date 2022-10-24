@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import "./style.scss";
 import BurgerPic from "../../assets/images/burger_sandwich.png";
 import SuggestionCard from "./suggestion-card/SuggestionCard";
@@ -6,10 +6,14 @@ import { suggestionList } from "./data";
 import { FaGreaterThan } from "react-icons/fa";
 import { Checkbox } from "antd";
 import SuccessPage from "./success-page/SuccessPage";
+import GeneralContext from "../../context/general-context/GeneralContext";
+import Spinner from "../../components/spinner/Spinner";
 
 const ConfirmOrder = () => {
   /* const [count, setCount] = useState(1); */
   const [isOk, setIsOk] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const { getCart, cart } = useContext(GeneralContext);
   /*   const increase = () => {
     setCount(count + 1);
   };
@@ -19,13 +23,33 @@ const ConfirmOrder = () => {
     setCount(count - 1);
   }; */
 
+  useEffect(() => {
+    const getCartData = async () => {
+      setLoading(true);
+      const returnedData = await getCart();
+      if (returnedData) {
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    };
+    getCartData();
+  }, []);
+
+  console.log(cart);
+
   const handleSubmit = () => {
     setIsOk(true);
   };
   return (
     <>
-      {isOk && <SuccessPage />}
-      {!isOk && (
+      {loading && (
+        <div className="loader">
+          <Spinner />
+        </div>
+      )}
+      {isOk && !loading && <SuccessPage />}
+      {!isOk && !loading && (
         <div className="confirm_container">
           <div className="confirm">
             <div className="confirm_header">
