@@ -1,7 +1,7 @@
 import "./style.scss";
 import { useState, useContext, useEffect } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ORDER_PAGE } from "../../routes";
 import BurgerPic from "../../assets/images/burger_sandwich.png";
 import { softDrinks, regularDrinks } from "./data";
@@ -9,17 +9,22 @@ import Extras from "./extras/Extras";
 import SelectInput from "../../components/inputs/select-input/SelectInput";
 import NormalInput from "../../components/inputs/normal-input/NormalInput";
 import AuthContext from "../../context/auth-context/AuthContext";
+import GeneralContext from "../../context/general-context/GeneralContext";
 import { BASE_URL } from "../../utils/baseUrl";
 import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
+import { message } from "antd";
 
 const CartPage = () => {
   const [count, setCount] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [addingcart, setAddingcart] = useState(false);
   const [drink, setDrinks] = useState("");
   const [regular, setRegular] = useState("");
   const [singleproduct, setSingleProduct] = useState({});
   const { userToken } = useContext(AuthContext);
+  const { addItemToCart } = useContext(GeneralContext);
+  const navigate = useNavigate();
   const increase = () => {
     setCount(count + 1);
   };
@@ -59,14 +64,27 @@ const CartPage = () => {
   //multiply the count and food price
   const totalprice = count * singleproduct?.externalSellingPrice;
 
-  const handleCartUpdate = () => {
+  const handleCartUpdate = async () => {
+    setAddingcart(true);
     const cart = {
       productId: singleproduct?.id,
       quantity: count,
-      price: totalprice,
-      extras: [],
+      /*       price: totalprice,
+      extras: [], */
     };
-    console.log(cart);
+    try {
+      const returnedData = await addItemToCart(cart);
+      if (returnedData) {
+        message.success("Item added to cart");
+        navigate("/confirm");
+        setAddingcart(false);
+      }
+      setAddingcart(false);
+      return true;
+    } catch (err) {
+      setAddingcart(false);
+      return false;
+    }
   };
   const logToConsole = (e) => {
     console.log(`${e} added to cart as extras`);
@@ -147,7 +165,12 @@ const CartPage = () => {
                   <p>1 Item</p>
                 </div>
                 <div className="checkout_center">
-                  <h3 onClick={handleCartUpdate}>ADD TO CART</h3>
+                  {addingcart && (
+                    <h3 onClick={handleCartUpdate}>ADDING ....</h3>
+                  )}
+                  {!addingcart && (
+                    <h3 onClick={handleCartUpdate}>ADD TO CART</h3>
+                  )}
                 </div>
                 <div className="checkout_right">
                   <p>€{totalprice}</p>
