@@ -3,6 +3,7 @@ import {
   GET_PRODUCT_BY_CATEGORY,
   GET_CATEGORIES,
   GET_PRODUCT_BY_ID,
+  ADD_TO_CART,
 } from "../types";
 const GeneralReducer = (prevState, { type, payload }) => {
   switch (type) {
@@ -25,6 +26,11 @@ const GeneralReducer = (prevState, { type, payload }) => {
       return {
         ...prevState,
         singleProduct: payload,
+      };
+    case ADD_TO_CART:
+      return {
+        ...prevState,
+        addTocart: payload,
       };
     default:
       return prevState;
