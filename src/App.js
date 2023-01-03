@@ -32,8 +32,7 @@ import DashboardLayout from "./layout/dashboard-layout/DashboardLayout";
 import PrivateRoute from "./PrivateRoutes";
 
 function App() {
-  return (
-    <div className="App">
+  return <div className="App">
       <Routes>
         <Route path={LANDING_PAGE} element={<OnboardingScreen />} />
         <Route path={SIGNUP_PAGE} element={<SignUpPage />} />
@@ -41,19 +40,23 @@ function App() {
         <Route path={FORGOT_PASSWORD_PAGE} element={<ForgotPasswordPage />} />
         <Route path={RESET_PASSWORD_PAGE} element={<ResetPasswordPage />} />
         <Route path={OTP_PAGE} element={<Otppage />} />
+        <Route path={MAIN_PAGE} element={<MainPage />} />
+        <Route path="/cart/:id" element={<CartPage />} />
+        <Route path={PROCESS_PAGE} element={<OrderProcess />} />
+        <Route path={TRACKING_PAGE} element={<TrackingPage />} />
+        <Route path={ORDER_PAGE} element={<OrderPage />} />
         <Route element={<PrivateRoute />}>
           <Route element={<DashboardLayout />}>
-            <Route path={MAIN_PAGE} element={<MainPage />} />
-            <Route path="/cart/:id" element={<CartPage />} />
+            {/* <Route path={MAIN_PAGE} element={<MainPage />} /> */}
+            {/* <Route path="/cart/:id" element={<CartPage />} />
             <Route path={PROCESS_PAGE} element={<OrderProcess />} />
             <Route path={TRACKING_PAGE} element={<TrackingPage />} />
-            <Route path={ORDER_PAGE} element={<OrderPage />} />
+            <Route path={ORDER_PAGE} element={<OrderPage />} /> */}
           </Route>
           <Route path={CONFIRM_PAGE} element={<ConfirmOrder />} />
         </Route>
       </Routes>
-    </div>
-  );
+    </div>;
 }
 
 export default App;

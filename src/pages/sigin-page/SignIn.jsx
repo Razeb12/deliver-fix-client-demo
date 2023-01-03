@@ -17,7 +17,8 @@ const SignIn = () => {
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const onFinish = async (values) => {
+  const onFinish = async values => {
+    navigate(MAIN_PAGE);
     setLoading(true);
     const { email, password } = values;
 
@@ -32,10 +33,13 @@ const SignIn = () => {
     }
   };
 
-  useEffect(() => {
-    if (userToken) navigate(MAIN_PAGE);
-    else return;
-  }, [userToken, navigate]);
+  useEffect(
+    () => {
+      if (userToken) navigate(MAIN_PAGE);
+      else return;
+    },
+    [userToken, navigate]
+  );
   return (
     <div className="sign_container">
       <div className="sign_body  container">
@@ -52,8 +56,7 @@ const SignIn = () => {
                   required: true,
                   message: "Email or Phone Number is required!",
                 },
-              ]}
-            >
+              ]}>
               <Input
                 placeholder="Email or Phone Number"
                 className="form_input"
@@ -68,8 +71,7 @@ const SignIn = () => {
                   required: true,
                   message: "Please input your password",
                 },
-              ]}
-            >
+              ]}>
               <Input
                 placeholder="Password"
                 type="password"
@@ -80,9 +82,8 @@ const SignIn = () => {
               <Link to="/forgot-password">Forgot Password!</Link>
             </div>
             <div className="submit_btns">
-              {!loading && (
-                <PrimaryButton buttonText="Login" htmlType="submit" />
-              )}
+              {!loading &&
+                <PrimaryButton buttonText="Login" htmlType="submit" />}
               {loading && <LoadingButton buttonText="Please wait..." />}
             </div>
           </Form>

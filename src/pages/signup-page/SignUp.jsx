@@ -18,7 +18,8 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const { signUp, userToken } = useContext(AuthContext);
   const navigate = useNavigate();
-  const onFinish = async (values) => {
+  const onFinish = async values => {
+    navigate(MAIN_PAGE);
     setLoading(true);
     const { fullName, email, password } = values;
 
@@ -34,10 +35,13 @@ const SignUp = () => {
     }
   };
 
-  useEffect(() => {
-    if (userToken) navigate(MAIN_PAGE);
-    else return;
-  }, [userToken, navigate]);
+  useEffect(
+    () => {
+      if (userToken) navigate(MAIN_PAGE);
+      else return;
+    },
+    [userToken, navigate]
+  );
   return (
     <div className="sign_container">
       <div className="sign_body  container">
@@ -54,8 +58,7 @@ const SignUp = () => {
                   required: true,
                   message: "Full Name is required!",
                 },
-              ]}
-            >
+              ]}>
               <Input
                 placeholder="Your Name"
                 className="form_input"
@@ -73,8 +76,7 @@ const SignUp = () => {
                   type: "email",
                   message: "The email is not a valid email",
                 },
-              ]}
-            >
+              ]}>
               <Input placeholder="Email" type="email" className="form_input" />
             </Form.Item>
             <Form.Item
@@ -84,8 +86,7 @@ const SignUp = () => {
                   required: true,
                   message: "Phone Number is required!",
                 },
-              ]}
-            >
+              ]}>
               <Input placeholder="Mobile" type="tel" className="form_input" />
             </Form.Item>
             <Form.Item
@@ -96,17 +97,15 @@ const SignUp = () => {
                   required: true,
                   message: "Please input your password",
                 },
-              ]}
-            >
+              ]}>
               <Input
                 placeholder="Password"
                 type="password"
                 className="form_input"
               />
             </Form.Item>
-            {!loading && (
-              <PrimaryButton buttonText="Register" htmlType="submit" />
-            )}
+            {!loading &&
+              <PrimaryButton buttonText="Register" htmlType="submit" />}
             {loading && <LoadingButton buttonText="Please wait..." />}
           </Form>
           <div className="form_extra_auth">
